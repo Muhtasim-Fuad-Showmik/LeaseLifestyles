@@ -1,7 +1,9 @@
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RentService.Entities;
 
+[Table("Items")]
 public class Item
 {
     public Guid Id { get; set; }
