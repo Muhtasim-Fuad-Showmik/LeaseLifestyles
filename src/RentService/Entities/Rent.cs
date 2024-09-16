@@ -13,7 +13,8 @@ public class Rent
     public int? CurrentHighBid { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
-    public DateTime ConfirmedAt { get; set; }
+    public DateTime ConfirmBy { get; set; }
+    public DateTime? ConfirmedAt { get; set; }
     public Status Status { get; set; }
     public Item Item { get; set; }
 }
