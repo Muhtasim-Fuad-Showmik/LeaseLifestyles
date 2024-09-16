@@ -19,4 +19,14 @@ app.UseAuthorization();
 // Middleware for directing the HTTP request to the correct API endpoint
 app.MapControllers();
 
+// Seed dummy data into the application
+try
+{
+    DbInitializer.InitDb(app);
+}
+catch (Exception e)
+{
+    Console.WriteLine(e);
+}
+
 app.Run();
