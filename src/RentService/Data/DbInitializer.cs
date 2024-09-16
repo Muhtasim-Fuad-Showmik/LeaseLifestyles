@@ -44,9 +44,11 @@ public class DbInitializer
                 LandlordContactNo = "1234567890",
                 Tennant = "Logan",
                 ConfirmBy = DateTime.UtcNow.AddDays(60),
+                CreatedBy = "Codeium",
                 Item = new Item
                 {
                     Address = "Lalmatia, Block B",
+                    FloorNumber = 3,
                     Beds = 3,
                     Baths = 4,
                     Balconies = 3,
@@ -70,6 +72,7 @@ public class DbInitializer
                 Tennant = "Clark",
                 RentAmount = 9000,
                 CurrentHighBid = 9000,
+                CreatedBy = "Codeium",
                 CreatedAt = DateTime.UtcNow.AddDays(-10),
                 UpdatedAt = DateTime.UtcNow.AddDays(-5),
                 ConfirmBy = DateTime.UtcNow.AddDays(10),
@@ -77,6 +80,7 @@ public class DbInitializer
                 Item = new Item
                 {
                     Address = "Bibir Bagicha, Jatra Bari",
+                    FloorNumber = 4,
                     Beds = 2,
                     Baths = 1,
                     Balconies = 2,
@@ -99,9 +103,11 @@ public class DbInitializer
                 LandlordContactNo = "01987654321",
                 Tennant = "Bruce",
                 ConfirmBy = DateTime.UtcNow.AddDays(60),
+                CreatedBy = "Codeium",
                 Item = new Item
                 {
                     Address = "Uttara, Sector 12, Plot 17",
+                    FloorNumber = 2,
                     Beds = 3,
                     Baths = 3,
                     Balconies = 2,
@@ -124,6 +130,7 @@ public class DbInitializer
                 LandlordContactNo = "01687654321",
                 Tennant = "Diluc",
                 ConfirmBy = DateTime.UtcNow.AddDays(60),
+                CreatedBy = "Codeium",
                 Item = new Item
                 {
                     Address = "Baridhara DOHS, Sector 12, Plot 17",
@@ -149,9 +156,11 @@ public class DbInitializer
                 LandlordContactNo = "01887654321",
                 Tennant = "Trish",
                 ConfirmBy = DateTime.UtcNow.AddDays(60),
+                CreatedBy = "Codeium",
                 Item = new Item
                 {
                     Address = "DOHS, Sector 12, Plot 17",
+                    FloorNumber = 1,
                     Beds = 3,
                     Baths = 4,
                     Balconies = 3,
@@ -174,6 +183,7 @@ public class DbInitializer
                 LandlordContactNo = "01987654321",
                 Tennant = "Peter",
                 ConfirmBy = DateTime.UtcNow.AddDays(60),
+                CreatedBy = "Codeium",
                 Item = new Item
                 {
                     Address = "Gulshan 1, Sector 12, Plot 17",
@@ -199,9 +209,11 @@ public class DbInitializer
                 LandlordContactNo = "01987654322",
                 Tennant = "Mithila",
                 ConfirmBy = DateTime.UtcNow.AddDays(60),
+                CreatedBy = "Codeium",
                 Item = new Item
                 {
                     Address = "Bashundhara, Block B",
+                    FloorNumber = 7,
                     Beds = 3,
                     Baths = 4,
                     Balconies = 3,
@@ -224,6 +236,7 @@ public class DbInitializer
                 LandlordContactNo = "01987654323",
                 Tennant = "Andrew",
                 ConfirmBy = DateTime.UtcNow.AddDays(60),
+                CreatedBy = "Codeium",
                 Item = new Item
                 {
                     Address = "Dhanmondi, Sector 12, Plot 17",
@@ -249,9 +262,11 @@ public class DbInitializer
                 LandlordContactNo = "01987654324",
                 Tennant = "Oliver",
                 ConfirmBy = DateTime.UtcNow.AddDays(60),
+                CreatedBy = "Codeium",
                 Item = new Item
                 {
                     Address = "Mirpur, Sector 12, Plot 17",
+                    FloorNumber = 4,
                     Beds = 3,
                     Baths = 3,
                     Balconies = 2,
@@ -274,6 +289,7 @@ public class DbInitializer
                 LandlordContactNo = "01987654325",
                 Tennant = "Dolores",
                 ConfirmBy = DateTime.UtcNow.AddDays(60),
+                CreatedBy = "Codeium",
                 Item = new Item
                 {
                     Address = "Badda, Sector 12, Plot 17",
