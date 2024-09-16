@@ -56,6 +56,7 @@ public class DbInitializer
                     LandSizeUnit = Unit.Katha,
                     AvailableFrom = DateTime.UtcNow.AddDays(30),
                     Description = "A beautiful, well ventilated and open flat is ready to move in the amicable locality of Lalmatia. To make sure you are gratified with the home that has always been pictured in your mind, we have enlisted the image of this flat below. Utilities are readily available in this apartment. There are balconies to make your apartment life more comfortable in the flat.\n\nMake yourself a happy buyer by calling us about this beautiful apartment right away!",
+                    ImageUrl = "https://images.unsplash.com/photo-1492659991124-ba70990ba2f4?q=80&w=1922&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 }
             },
             // Jatra Bari Thana, 700Sqft
@@ -85,6 +86,7 @@ public class DbInitializer
                     LandSizeUnit = Unit.Katha,
                     AvailableFrom = DateTime.UtcNow.AddDays(15),
                     Description = "If you are looking for a home with 2 beds and 1 bath, this should be perfect and within an affordable range of BDT 8,500. Well fitted with gas, electricity and water supplies, this flat is ideal to move in for new inhabitants. The building welcomes with a very commodious parking lot and an elevator to take to the apartment to this apartment. After entering the flat, you will find ample rooms cited for your recessing time and also happy dine hour. The kitchen area is just close to the dining space which gives the impression of ample light and space to have a content cooking time. Well-fitted bathrooms with resilient fixtures as per your prerequisites. One allotted parking space would come along with this beautiful flat. Lots of restaurants, shopping places and schools are nearby as well as parks so the neighborhood is great as well. Advance for 2 months.\n\nDon’t miss this affordable offer and we are just a call away to close the deal for you!",
+                    ImageUrl = "https://images.unsplash.com/photo-1516923427950-a696555ab884?q=80&w=2068&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 }
             },
             // Uttara, Sector 12, 1200 Sqft
@@ -109,6 +111,7 @@ public class DbInitializer
                     LandSizeUnit = Unit.Katha,
                     AvailableFrom = DateTime.UtcNow.AddDays(45),
                     Description = "A beautiful, well ventilated and open flat is ready to move in the amicable locality of Uttara. To make sure you are gratified with the home that has always been pictured in your mind, we have enlisted the image of this flat below. Utilities are readily available in this apartment. There are balconies to make your apartment life more comfortable in the flat.\n\nMake yourself a happy buyer by calling us about this beautiful apartment right away!",
+                    ImageUrl = "https://images.unsplash.com/photo-1534655610770-dd69616f05ff?q=80&w=1856&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 }
             },
             // Baridhara DOHS, 1000 Sqft
@@ -133,6 +136,7 @@ public class DbInitializer
                     LandSizeUnit = Unit.Katha,
                     AvailableFrom = DateTime.UtcNow.AddDays(45),
                     Description = "A beautiful, well ventilated and open flat is ready to move in the amicable locality of Uttara. To make sure you are gratified with the home that has always been pictured in your mind, we have enlisted the image of this flat below. Utilities are readily available in this apartment. There are balconies to make your apartment life more comfortable in the flat.\n\nMake yourself a happy buyer by calling us about this beautiful apartment right away!",
+                    ImageUrl = "https://images.unsplash.com/photo-1515120263166-b676e1f61045?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 }
             },
             // DOHS, 1800 Sqft
@@ -157,6 +161,7 @@ public class DbInitializer
                     LandSizeUnit = Unit.Katha,
                     AvailableFrom = DateTime.UtcNow.AddDays(45),
                     Description = "A beautiful, well ventilated and open flat is ready to move in the amicable locality of Uttara. To make sure you are gratified with the home that has always been pictured in your mind, we have enlisted the image of this flat below. Utilities are readily available in this apartment. There are balconies to make your apartment life more comfortable in the flat.\n\nMake yourself a happy buyer by calling us about this beautiful apartment right away!",
+                    ImageUrl = "https://images.unsplash.com/photo-1525953776754-6c4b7ee655ab?q=80&w=1921&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 }
             },
             // Gulshan 1, 1200 Sqft
@@ -181,6 +186,7 @@ public class DbInitializer
                     LandSizeUnit = Unit.Katha,
                     AvailableFrom = DateTime.UtcNow.AddDays(45),
                     Description = "A beautiful, well ventilated and open flat is ready to move in the amicable locality of Uttara. To make sure you are gratified with the home that has always been pictured in your mind, we have enlisted the image of this flat below. Utilities are readily available in this apartment. There are balconies to make your apartment life more comfortable in the flat.\n\nMake yourself a happy buyer by calling us about this beautiful apartment right away!",
+                    ImageUrl = "https://plus.unsplash.com/premium_photo-1670275658703-33fb95fe50d8?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 }
             },
             // Bashundhara, 1800 Sqft
@@ -205,6 +211,7 @@ public class DbInitializer
                     LandSizeUnit = Unit.Katha,
                     AvailableFrom = DateTime.UtcNow.AddDays(45),
                     Description = "A beautiful, well ventilated and open flat is ready to move in the amicable locality of Uttara. To make sure you are gratified with the home that has always been pictured in your mind, we have enlisted the image of this flat below. Utilities are readily available in this apartment. There are balconies to make your apartment life more comfortable in the flat.\n\nMake yourself a happy buyer by calling us about this beautiful apartment right away!",
+                    ImageUrl = "https://plus.unsplash.com/premium_photo-1680157072373-f180488fd8ae?q=80&w=1881&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 }
             },
             // Dhanmondi, 2000 Sqft
@@ -229,6 +236,7 @@ public class DbInitializer
                     LandSizeUnit = Unit.Katha,
                     AvailableFrom = DateTime.UtcNow.AddDays(45),
                     Description = "A beautiful, well ventilated and open flat is ready to move in the amicable locality of Uttara. To make sure you are gratified with the home that has always been pictured in your mind, we have enlisted the image of this flat below. Utilities are readily available in this apartment. There are balconies to make your apartment life more comfortable in the flat.\n\nMake yourself a happy buyer by calling us about this beautiful apartment right away!",
+                    ImageUrl = "https://images.unsplash.com/photo-1460408037948-b89a5e837b41?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 }
             },
             // Mirpur, 1200 Sqft
@@ -253,6 +261,7 @@ public class DbInitializer
                     LandSizeUnit = Unit.Katha,
                     AvailableFrom = DateTime.UtcNow.AddDays(45),
                     Description = "A beautiful, well ventilated and open flat is ready to move in the amicable locality of Uttara. To make sure you are gratified with the home that has always been pictured in your mind, we have enlisted the image of this flat below. Utilities are readily available in this apartment. There are balconies to make your apartment life more comfortable in the flat.\n\nMake yourself a happy buyer by calling us about this beautiful apartment right away!",
+                    ImageUrl = "https://images.unsplash.com/photo-1489936724440-afaf5a115ede?q=80&w=2051&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 }
             },
             // Badda, 1500 Sqft
@@ -277,6 +286,7 @@ public class DbInitializer
                     LandSizeUnit = Unit.Katha,
                     AvailableFrom = DateTime.UtcNow.AddDays(45),
                     Description = "A beautiful, well ventilated and open flat is ready to move in the amicable locality of Uttara. To make sure you are gratified with the home that has always been pictured in your mind, we have enlisted the image of this flat below. Utilities are readily available in this apartment. There are balconies to make your apartment life more comfortable in the flat.\n\nMake yourself a happy buyer by calling us about this beautiful apartment right away!",
+                    ImageUrl = "https://images.unsplash.com/photo-1512621480870-77463b1b90c7?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 }
             },
         };
