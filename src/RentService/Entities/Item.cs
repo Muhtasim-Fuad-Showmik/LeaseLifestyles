@@ -17,6 +17,7 @@ public class Item
     public Unit? LandSizeUnit { get; set; }
     public string Description { get; set; }
     public DateTime AvailableFrom { get; set; } = DateTime.UtcNow;
+    public string ImageUrl { get; set; }
 
     public Rent Rent { get; set; }
     public Guid RentId { get; set; }
