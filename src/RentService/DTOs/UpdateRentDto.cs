@@ -5,6 +5,7 @@ namespace RentService.DTOs;
 public class UpdateRentDto
 {
     public string Address { get; set; }
+    public int FloorNumber { get; set; }
     public int Beds { get; set; }
     public int Baths { get; set; }
     public int Balconies { get; set; }

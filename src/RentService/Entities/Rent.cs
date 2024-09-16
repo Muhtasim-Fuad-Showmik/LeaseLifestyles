@@ -11,6 +11,7 @@ public class Rent
     public string Tennant { get; set; }
     public int? RentAmount { get; set; }
     public int? CurrentHighBid { get; set; }
+    public string CreatedBy { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
     public DateTime ConfirmBy { get; set; }

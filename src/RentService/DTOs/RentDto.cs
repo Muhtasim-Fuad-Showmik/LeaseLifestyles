@@ -11,12 +11,14 @@ public class RentDto
     public string Tennant { get; set; }
     public int RentAmount { get; set; }
     public int CurrentHighBid { get; set; }
+    public string CreatedBy { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
     public DateTime ConfirmBy { get; set; }
     public DateTime ConfirmedAt { get; set; }
     public string Status { get; set; }
     public string Address { get; set; }
+    public int FloorNumber { get; set; }
     public int Beds { get; set; }
     public int Baths { get; set; }
     public int Balconies { get; set; }

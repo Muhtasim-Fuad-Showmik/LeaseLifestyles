@@ -8,6 +8,8 @@ public class CreateRentDto
     [Required]
     public string Address { get; set; }
     [Required]
+    public int FloorNumber { get; set; }
+    [Required]
     public int Beds { get; set; }
     [Required]
     public int Baths { get; set; }
