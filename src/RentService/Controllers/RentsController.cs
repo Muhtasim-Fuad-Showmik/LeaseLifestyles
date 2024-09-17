@@ -106,4 +106,28 @@ public class RentsController : ControllerBase
         // If result is not successful, return a Status 400 Bad Request response
         return BadRequest("Problem saving changes");
     }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> DeleteRent(Guid id)
+    {
+        // Retrieve the rent that is to be deleted
+        var rent = await _context.Rents.FindAsync(id);
+
+        // Return a 404 Not Found response if rent is not found
+        if (rent == null) return NotFound();
+
+        // TODO: Check if landlord == username
+
+        // Remove the rent from the database
+        _context.Rents.Remove(rent);
+
+        // Save local changes to the database and retrieve the result
+        var result = await _context.SaveChangesAsync() > 0;
+
+        // If result is not successful, return a Status 400 Bad Request response
+        if (!result) return BadRequest("Problem deleting rent");
+
+        // If result is successful, return a Status 200 OK response
+        return Ok();
+    }
 }
