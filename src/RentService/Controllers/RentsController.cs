@@ -1,5 +1,6 @@
 using System;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RentService.Data;
@@ -22,17 +23,21 @@ public class RentsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<RentDto>>> GetAllRents()
+    public async Task<ActionResult<List<RentDto>>> GetAllRents(string date)
     {
-        /* Retrieve all rents, including the associated item,
-        ordered by their house sizes */
-        var rents = await _context.Rents
-            .Include(x => x.Item)
-            .OrderBy(x => x.Item.HouseSize)
-            .ToListAsync();
+        // Prepare a queryable object to get all Rents ordered by 
+        // their addresses
+        var query = _context.Rents.OrderByDescending(x => x.Item.Address).AsQueryable();
 
-        // Return the retrieved rents mapped according to the RentDto
-        return _mapper.Map<List<RentDto>>(rents);
+        // If a date is provided, filter the result based on Rents that have been updated after that date
+        if (!string.IsNullOrEmpty(date))
+        {
+            query = query.Where(x => x.UpdatedAt.CompareTo(DateTime.Parse(date).ToUniversalTime()) > 0);
+        }
+
+        // Use the queryable object to get all of the rents mapped to RentDto
+        // structure as a list
+        return await query.ProjectTo<RentDto>(_mapper.ConfigurationProvider).ToListAsync();
     }
 
     [HttpGet("{id}")]
