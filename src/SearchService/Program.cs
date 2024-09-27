@@ -1,4 +1,5 @@
 using System.Net;
+using MassTransit;
 using Polly;
 using Polly.Extensions.Http;
 using SearchService.Data;
@@ -14,6 +15,13 @@ builder.Services.AddControllers();
 // Add a new HttpClient to the service container
 // AddPolicyHandler() adds a Polly policy to handle HTTP errors
 builder.Services.AddHttpClient<RentServiceHttpClient>().AddPolicyHandler(GetPolicy());
+builder.Services.AddMassTransit(x =>
+{
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.ConfigureEndpoints(context);
+    });
+});
 
 // Build the WebApplication using the services
 var app = builder.Build();
