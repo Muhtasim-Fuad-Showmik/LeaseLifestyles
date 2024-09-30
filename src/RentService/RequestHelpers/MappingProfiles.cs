@@ -1,5 +1,6 @@
 using System;
 using AutoMapper;
+using Contracts;
 using RentService.DTOs;
 using RentService.Entities;
 
@@ -18,5 +19,8 @@ public class MappingProfiles : Profile
         CreateMap<CreateRentDto, Rent>()
             .ForMember(d => d.Item, o => o.MapFrom(s => s));
         CreateMap<CreateRentDto, Item>();
+
+        // Mapping for RentDTO to RentCreated entity for the Event Bus
+        CreateMap<RentDto, RentCreated>();
     }
 }

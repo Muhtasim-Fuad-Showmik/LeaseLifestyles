@@ -1,6 +1,8 @@
 using System;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Contracts;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RentService.Data;
@@ -15,11 +17,13 @@ public class RentsController : ControllerBase
 {
     private readonly RentDbContext _context;
     private readonly IMapper _mapper;
+    private readonly IPublishEndpoint _publishEndpoint;
 
-    public RentsController(RentDbContext context, IMapper mapper)
+    public RentsController(RentDbContext context, IMapper mapper, IPublishEndpoint publishEndpoint)
     {
         _context = context;
         _mapper = mapper;
+        _publishEndpoint = publishEndpoint;
     }
 
     [HttpGet]
@@ -70,11 +74,16 @@ public class RentsController : ControllerBase
         // Save changes from memory to the database
         var result = await _context.SaveChangesAsync();
 
+        // Map the new created rent to RentDto
+        // and publish it to the Event Bus
+        var newRent = _mapper.Map<RentDto>(rent);
+        await _publishEndpoint.Publish(_mapper.Map<RentCreated>(newRent));
+
         // If no changes were applied, the request has failed
         if (result == 0) return BadRequest("Could not save changes to the DB");
 
         // Return reference to GetRentById to assist in finding the created data from the database
-        return CreatedAtAction(nameof(GetRentById), new { rent.Id }, _mapper.Map<RentDto>(rent));
+        return CreatedAtAction(nameof(GetRentById), new { rent.Id }, newRent);
     }
 
     [HttpPut("{id}")]
