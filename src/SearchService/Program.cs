@@ -12,6 +12,11 @@ var builder = WebApplication.CreateBuilder(args);
 // AddControllers() adds the MVC services and configures the app to use controllers
 builder.Services.AddControllers();
 
+// Add AutoMapper to the service container and scan for assemblies
+// AutoMapper is an Object-to-Object mapper which can be used to map
+// between objects of different types.
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 // Add a new HttpClient to the service container
 // AddPolicyHandler() adds a Polly policy to handle HTTP errors
 builder.Services.AddHttpClient<RentServiceHttpClient>().AddPolicyHandler(GetPolicy());
