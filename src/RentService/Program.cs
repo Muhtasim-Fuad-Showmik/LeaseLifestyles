@@ -13,7 +13,6 @@ builder.Services.AddDbContext<RentDbContext>(opt =>
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddMassTransit(x =>
 {
-    /*************  ✨ Codeium Command 🌟  *************/
     // Set up the Entity Framework Outbox which is used to store messages in the database
     // that are yet to be sent. This is useful if the application is shut down before all
     // messages can be sent.
@@ -35,7 +34,6 @@ builder.Services.AddMassTransit(x =>
         // Configure the endpoints for the RabbitMQ message bus
         cfg.ConfigureEndpoints(context);
     });
-    /******  17467043-c828-474d-9ca2-b665bf283724  *******/
 });
 
 var app = builder.Build();
