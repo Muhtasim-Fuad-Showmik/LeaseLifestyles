@@ -71,13 +71,13 @@ public class RentsController : ControllerBase
         // Save rent to be created to memory
         _context.Rents.Add(rent);
 
-        // Save changes from memory to the database
-        var result = await _context.SaveChangesAsync();
-
         // Map the new created rent to RentDto
         // and publish it to the Event Bus
         var newRent = _mapper.Map<RentDto>(rent);
         await _publishEndpoint.Publish(_mapper.Map<RentCreated>(newRent));
+
+        // Save changes from memory to the database
+        var result = await _context.SaveChangesAsync();
 
         // If no changes were applied, the request has failed
         if (result == 0) return BadRequest("Could not save changes to the DB");
