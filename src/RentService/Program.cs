@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using RentService.Data;
 using MassTransit;
+using RentService.Consumers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +28,15 @@ builder.Services.AddMassTransit(x =>
         // Use the outbox as the bus
         o.UseBusOutbox();
     });
+
+    // Add all consumers from the same namespace as the RentCreatedFaultConsumer
+    x.AddConsumersFromNamespaceContaining<RentCreatedFaultConsumer>();
+
+    // Set the endpoint name formatter to use a kebab case (lowercase and hyphenated)
+    // format for the endpoint names. The first parameter is the prefix to use for
+    // the endpoint names, and the second parameter is a boolean that determines
+    // whether to append the endpoint name with the namespace of the consumer.
+    x.SetEndpointNameFormatter(new KebabCaseEndpointNameFormatter("rent", false));
 
     // Set up the RabbitMQ message bus
     x.UsingRabbitMq((context, cfg) =>
