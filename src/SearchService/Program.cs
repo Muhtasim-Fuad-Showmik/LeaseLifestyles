@@ -33,6 +33,16 @@ builder.Services.AddMassTransit(x =>
 
     x.UsingRabbitMq((context, cfg) =>
     {
+        //  Add Mesasge retries for "search-rent-created" endpoint
+        // and configure the Rent Created Consumer
+        cfg.ReceiveEndpoint("search-rent-created", e =>
+        {
+            // Add 5 retries on 5 second intervals
+            e.UseMessageRetry(r => r.Interval(5, 5));
+
+            e.ConfigureConsumer<RentCreatedConsumer>(context);
+        });
+
         cfg.ConfigureEndpoints(context);
     });
 });
