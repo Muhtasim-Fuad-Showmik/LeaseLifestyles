@@ -2,6 +2,7 @@ using System;
 using AutoMapper;
 using Contracts;
 using MassTransit;
+using MongoDB.Bson.Serialization.Options;
 using MongoDB.Entities;
 using SearchService.Models;
 
@@ -33,6 +34,9 @@ public class RentCreatedConsumer : IConsumer<RentCreated>
         Console.WriteLine("--> Consuming rent created: " + context.Message.Id);
 
         var item = _mapper.Map<Item>(context.Message);
+
+        if (item.HouseSize < 500 && item.HouseSizeUnit == "Sqft") throw new ArgumentException("Cannot sell houses smaller than 500 square feet");
+
         await item.SaveAsync();
     }
 }
