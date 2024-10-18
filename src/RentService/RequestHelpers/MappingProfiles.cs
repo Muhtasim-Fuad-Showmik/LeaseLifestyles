@@ -22,5 +22,9 @@ public class MappingProfiles : Profile
 
         // Mapping for RentDTO to RentCreated entity for the Event Bus
         CreateMap<RentDto, RentCreated>();
+
+        // Mapping for Rent to RentUpdated entity for the Event Bus
+        CreateMap<Rent, RentUpdated>().IncludeMembers(a => a.Item);
+        CreateMap<Item, RentUpdated>();
     }
 }

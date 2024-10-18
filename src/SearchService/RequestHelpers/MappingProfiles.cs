@@ -16,6 +16,7 @@ namespace SearchService.RequestHelpers
         public MappingProfiles()
         {
             CreateMap<RentCreated, Item>();
+            CreateMap<RentUpdated, Item>();
         }
     }
 }

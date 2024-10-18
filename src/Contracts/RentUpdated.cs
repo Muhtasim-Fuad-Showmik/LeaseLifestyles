@@ -4,6 +4,7 @@ namespace Contracts;
 
 public class RentUpdated
 {
+    public string Id { get; set; }
     public string Address { get; set; }
     public int FloorNumber { get; set; }
     public int Beds { get; set; }
