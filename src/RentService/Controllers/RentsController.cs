@@ -111,6 +111,9 @@ public class RentsController : ControllerBase
         rent.Item.Description = updateRentDto.Description ?? rent.Item.Description;
         rent.Item.AvailableFrom = updateRentDto.AvailableFrom ?? rent.Item.AvailableFrom;
 
+        // Publish the updated rent
+        await _publishEndpoint.Publish(_mapper.Map<RentUpdated>(rent));
+
         // Save local changes to the database and retrieve the result
         var result = await _context.SaveChangesAsync() > 0;
 
