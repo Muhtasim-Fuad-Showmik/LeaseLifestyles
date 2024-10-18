@@ -138,6 +138,9 @@ public class RentsController : ControllerBase
         // Remove the rent from the database
         _context.Rents.Remove(rent);
 
+        // Publish the deleted rent
+        await _publishEndpoint.Publish<RentDeleted>(new { Id = rent.Id.ToString() });
+
         // Save local changes to the database and retrieve the result
         var result = await _context.SaveChangesAsync() > 0;
 
