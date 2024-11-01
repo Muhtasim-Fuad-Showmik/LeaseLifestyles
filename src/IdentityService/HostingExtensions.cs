@@ -29,7 +29,7 @@ internal static class HostingExtensions
                 options.Events.RaiseSuccessEvents = true;
 
                 // see https://docs.duendesoftware.com/identityserver/v6/fundamentals/resources/
-                
+
                 // Our project configuration as planned needs this line to be commented
                 // out as otherwise this will cause an issue later on
                 // options.EmitStaticAudienceClaim = true;
@@ -39,15 +39,23 @@ internal static class HostingExtensions
             .AddInMemoryClients(Config.Clients)
             .AddAspNetIdentity<ApplicationUser>();
 
+        // Indicates the client should send the cookie with "same-site" 
+        // requests, and with "cross-site" top-level navigations
+        // (Necessary for our project that will be run on HTTP instead of HTTPS)
+        builder.Services.ConfigureApplicationCookie(options =>
+        {
+            options.Cookie.SameSite = SameSiteMode.Lax;
+        });
+
         builder.Services.AddAuthentication();
 
         return builder.Build();
     }
-    
+
     public static WebApplication ConfigurePipeline(this WebApplication app)
-    { 
+    {
         app.UseSerilogRequestLogging();
-    
+
         if (app.Environment.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
@@ -57,7 +65,7 @@ internal static class HostingExtensions
         app.UseRouting();
         app.UseIdentityServer();
         app.UseAuthorization();
-        
+
         app.MapRazorPages()
             .RequireAuthorization();
 
