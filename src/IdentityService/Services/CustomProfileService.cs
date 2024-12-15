@@ -7,17 +7,24 @@ using Microsoft.AspNetCore.Identity;
 
 namespace IdentityService.Services;
 
-public abstract class CustomProfileService(UserManager<ApplicationUser> userManager) : IProfileService
+public class CustomProfileService() : IProfileService
 {
+    private readonly UserManager<ApplicationUser> _userManager;
+
+    public CustomProfileService(UserManager<ApplicationUser> userManager) : this()
+    {
+        _userManager = userManager;
+    }
+    
     /// <summary>
     /// This method is called whenever claims about the user are requested (e.g. during token creation)
     /// </summary>
     public async Task GetProfileDataAsync(ProfileDataRequestContext context)
     {
-        var user = await userManager.GetUserAsync(context.Subject);
+        var user = await _userManager.GetUserAsync(context.Subject);
         if (user == null) return;
             
-        var existingClaims = await userManager.GetClaimsAsync(user);
+        var existingClaims = await _userManager.GetClaimsAsync(user);
 
         // Add a custom claim called "username" that contains the user's username
         // this claim will be included in the access token
