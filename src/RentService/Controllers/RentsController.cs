@@ -3,6 +3,7 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Contracts;
 using MassTransit;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RentService.Data;
@@ -59,14 +60,17 @@ public class RentsController : ControllerBase
         return _mapper.Map<RentDto>(rent);
     }
 
+    [Authorize]
     [HttpPost]
     public async Task<ActionResult<RentDto>> CreateRent(CreateRentDto rentDto)
     {
         // Prepare AutoMapper from rentDto to rent
         var rent = _mapper.Map<Rent>(rentDto);
 
-        // TODO: Add current user as creator
-        rent.CreatedBy = "Fuad";
+        // Add current user as creator
+        // Note: Gives the username from Name Claim Type as specified in Program.cs
+        if (User.Identity == null) return Forbid();
+        rent.CreatedBy = User.Identity.Name;
 
         // Save rent to be created to memory
         _context.Rents.Add(rent);
@@ -86,6 +90,7 @@ public class RentsController : ControllerBase
         return CreatedAtAction(nameof(GetRentById), new { rent.Id }, newRent);
     }
 
+    [Authorize]
     [HttpPut("{id}")]
     public async Task<ActionResult> UpdateRent(Guid id, UpdateRentDto updateRentDto)
     {
@@ -96,7 +101,8 @@ public class RentsController : ControllerBase
         // Return a 404 Not Found response if rent is not found
         if (rent == null) return NotFound();
 
-        // TODO: Check if landlord == username
+        // Check if rent is being updated by the creator of the post
+        if (User.Identity.Name == null || rent.CreatedBy != User.Identity.Name) return Forbid();
 
         // Update each field if an update for that field has been provided
         rent.Item.Address = updateRentDto.Address ?? rent.Item.Address;
@@ -124,6 +130,7 @@ public class RentsController : ControllerBase
         return BadRequest("Problem saving changes");
     }
 
+    [Authorize]
     [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteRent(Guid id)
     {
@@ -133,7 +140,8 @@ public class RentsController : ControllerBase
         // Return a 404 Not Found response if rent is not found
         if (rent == null) return NotFound();
 
-        // TODO: Check if landlord == username
+        // Check if rent is being deleted by the creator of the post
+        if (User.Identity == null || rent.CreatedBy != User.Identity.Name) return Forbid();
 
         // Remove the rent from the database
         _context.Rents.Remove(rent);
