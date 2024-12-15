@@ -102,7 +102,7 @@ public class RentsController : ControllerBase
         if (rent == null) return NotFound();
 
         // Check if rent is being updated by the creator of the post
-        if (User.Identity == null || rent.CreatedBy != User.Identity.Name) return Forbid();
+        if (User.Identity.Name == null || rent.CreatedBy != User.Identity.Name) return Forbid();
 
         // Update each field if an update for that field has been provided
         rent.Item.Address = updateRentDto.Address ?? rent.Item.Address;
