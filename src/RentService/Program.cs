@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using RentService.Data;
 using MassTransit;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using RentService.Consumers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -45,11 +46,26 @@ builder.Services.AddMassTransit(x =>
         cfg.ConfigureEndpoints(context);
     });
 });
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.Authority = builder.Configuration["IdentityServiceUrl"];
+        
+        // As our service is running on HTTP not HTTPS
+        options.RequireHttpsMetadata = false;
+        
+        options.TokenValidationParameters.ValidateAudience = false;
+        
+        // Exactly as specified in our Identity Service custom profile
+        options.TokenValidationParameters.NameClaimType = "username";
+    });
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
+// Authenticate the user and then authorize for granting access
+app.UseAuthentication();
 app.UseAuthorization();
 
 // Middleware for directing the HTTP request to the correct API endpoint
